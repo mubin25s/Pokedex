@@ -88,7 +88,10 @@ const Home = () => {
     return (
         <div className="home-container">
             <header className="header">
-                <h1 className="title">Pokédex</h1>
+                <div className="logo-container">
+                    <Pokeball />
+                    <h1 className="title">Pokédex</h1>
+                </div>
                 <div className="search-bar">
                     <Search size={20} color="#888" />
                     <input
