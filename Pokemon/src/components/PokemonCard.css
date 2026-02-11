@@ -1,0 +1,104 @@
+.pokemon-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  border-color: var(--accent);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.card-image-container {
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  z-index: 2;
+  filter: drop-shadow(0 15px 15px rgba(0,0,0,0.3));
+  transition: transform 0.4s ease;
+}
+
+.pokemon-card:hover .card-image {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.card-content {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-name {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0;
+  text-transform: capitalize;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+}
+
+.card-types {
+  display: flex;
+  gap: 10px;
+}
+
+.type-badge {
+  padding: 6px 16px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Hover Type Glows */
+.pokemon-card:hover.type-grass { box-shadow: 0 10px 30px rgba(120, 200, 80, 0.3); }
+.pokemon-card:hover.type-fire { box-shadow: 0 10px 30px rgba(240, 128, 48, 0.3); }
+.pokemon-card:hover.type-water { box-shadow: 0 10px 30px rgba(104, 144, 240, 0.3); }
+.pokemon-card:hover.type-electric { box-shadow: 0 10px 30px rgba(248, 208, 48, 0.3); }
+.pokemon-card:hover.type-psychic { box-shadow: 0 10px 30px rgba(248, 88, 136, 0.3); }
+.pokemon-card:hover.type-dragon { box-shadow: 0 10px 30px rgba(112, 56, 248, 0.3); }
+
+/* Standard type background colors */
+.type-grass { background-color: var(--type-grass); }
+.type-fire { background-color: var(--type-fire); }
+.type-water { background-color: var(--type-water); }
+.type-bug { background-color: var(--type-bug); }
+.type-normal { background-color: var(--type-normal); }
+.type-poison { background-color: var(--type-poison); }
+.type-electric { background-color: var(--type-electric); }
+.type-ground { background-color: var(--type-ground); }
+.type-fairy { background-color: var(--type-fairy); }
+.type-fighting { background-color: var(--type-fighting); }
+.type-psychic { background-color: var(--type-psychic); }
+.type-rock { background-color: var(--type-rock); }
+.type-ghost { background-color: var(--type-ghost); }
+.type-ice { background-color: var(--type-ice); }
+.type-dragon { background-color: var(--type-dragon); }
+.type-dark { background-color: var(--type-dark); }
+.type-steel { background-color: var(--type-steel); }
+.type-flying { background-color: var(--type-flying); }

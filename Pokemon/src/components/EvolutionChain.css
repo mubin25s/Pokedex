@@ -1,0 +1,88 @@
+.evolution-container {
+  margin-top: 3rem;
+  text-align: center;
+  padding: 2rem;
+  background: var(--bg-secondary);
+  border-radius: 1rem;
+}
+
+.evo-title {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.evo-stages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.evo-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.evo-arrow {
+  font-size: 2rem;
+  color: var(--text-secondary);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-10px);}
+  60% {transform: translateY(-5px);}
+}
+
+.evo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.evo-card-link {
+  text-decoration: none;
+}
+
+.evo-card {
+  background: var(--bg-tertiary);
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+  transition: box-shadow 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.evo-card:hover {
+  box-shadow: 0 0 15px var(--accent);
+  border-color: var(--accent);
+}
+
+.evo-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.evo-name {
+  color: var(--text-primary);
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 0.9rem;
+}
+
+.evo-loader {
+  color: var(--text-secondary);
+  padding: 2rem;
+}

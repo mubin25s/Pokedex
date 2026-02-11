@@ -1,0 +1,282 @@
+
+.gen-viewer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  background: var(--bg-tertiary);
+  border-radius: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: background-color 0.5s ease;
+  min-height: 500px;
+}
+
+.carousel-area {
+    position: relative;
+    width: 100%;
+    height: 550px; /* Tall enough to make the large image feel relaxed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px;
+}
+
+.carousel-images-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+/* Radical glow behind the active pokemon */
+.carousel-images-container::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.carousel-card {
+    position: absolute;
+    width: 420px; /* Signficantly larger hero image */
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+    transform-style: preserve-3d;
+    z-index: 2;
+}
+
+.carousel-card:active {
+    cursor: grabbing;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+    -webkit-user-drag: none;
+    z-index: 5;
+}
+
+.carousel-info-overlay {
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    width: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.carousel-name {
+   font-size: 4rem;
+   text-transform: capitalize;
+   color: #fff;
+   margin: 0;
+   font-weight: 900;
+   text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+   letter-spacing: -2px;
+}
+
+/* ... previous styles ... */
+
+.panel-header {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.gen-badge {
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    padding: 0.2rem 0.8rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.panel-description {
+    text-align: center;
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+/* Redesigned Profile Panel */
+.stats-container-panel {
+  width: 100%;
+  max-width: 550px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  padding: 2.5rem;
+  margin-top: 1rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.panel-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.gen-badge {
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffd700;
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.display-types {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.type-badge {
+    padding: 0.5rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.panel-description {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    max-width: 90%;
+}
+
+/* Stats Section Redesign */
+.display-stats {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.physical-stats-row {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.p-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.p-stat svg {
+    color: var(--accent);
+    filter: drop-shadow(0 0 5px rgba(255, 204, 0, 0.5));
+}
+
+.p-stat span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.base-stats-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mini-stat {
+  display: grid;
+  grid-template-columns: 100px 1fr 40px;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mini-stat-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.85rem;
+}
+
+.mini-bar {
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.mini-fill {
+  height: 100%;
+  border-radius: 6px;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.stat-value-text {
+    font-weight: 700;
+    color: #fff;
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+.gen-loader {
+    display: flex;
+    justify-content: center;
+    padding: 4rem;
+}
+
+@media (max-width: 768px) {
+    .carousel-card {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .carousel-name {
+        font-size: 2rem;
+    }
+}
