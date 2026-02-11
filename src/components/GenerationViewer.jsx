@@ -19,8 +19,14 @@ const GenerationViewer = ({ initialPokemon, speciesData, evolutionChain }) => {
                     setFamily([{ ...initialPokemon, speciesDetails: speciesData }]);
                 } else {
                     const names = extractSpeciesNames(evolutionChain.chain);
+
+                    // Add varieties from current speciesData if they exist 
+                    // This allows Mega/Gmax forms to be part of the carousel
+                    const varieties = speciesData?.varieties?.map(v => v.pokemon.name) || [];
+                    const allNames = [...new Set([...names, ...varieties])];
+
                     const details = await Promise.all(
-                        names.map(async (name) => {
+                        allNames.map(async (name) => {
                             try {
                                 const poke = await fetchPokemonDetails(name);
                                 const species = await fetchSpeciesStats(poke.species.name);
