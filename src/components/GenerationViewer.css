@@ -226,6 +226,48 @@
     transition: all 0.3s ease;
 }
 
+.physical-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.stat-label-dim {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+.stat-value-dim {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.abilities-box {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+}
+
+.abilities-text {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: capitalize;
+    margin: 0.4rem 0 0 0;
+}
+
 .description-box {
     font-size: 1.1rem;
     line-height: 1.7;
@@ -391,15 +433,18 @@
     }
 
     .carousel-card {
-        width: 220px;
-        height: 220px;
-        margin-left: -110px;
-        margin-top: -110px;
+        width: 180px;
+        height: 180px;
+        margin-left: -90px;
+        margin-top: -90px;
     }
 
+    .hero-info {
+        bottom: -45px;
+    }
+    
     .hero-name {
-        font-size: 2.5rem;
-        bottom: -50px;
+        font-size: 2.2rem;
     }
 
     .nav-arrow {
@@ -407,8 +452,8 @@
         height: 45px;
     }
     
-    .nav-left { left: 0.5rem; }
-    .nav-right { right: 0.5rem; }
+    .nav-left { left: 0.25rem; }
+    .nav-right { right: 0.25rem; }
 
     .stats-hud {
         grid-template-columns: 1fr;
@@ -448,13 +493,27 @@
 
 @media (max-width: 480px) {
     .carousel-card {
-        width: 180px;
-        height: 180px;
-        margin-left: -90px;
-        margin-top: -90px;
+        width: 140px;
+        height: 140px;
+        margin-left: -70px;
+        margin-top: -70px;
+    }
+
+    .hero-info {
+        bottom: -35px;
     }
 
     .hero-name {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .background-name {
+        font-size: 25vw;
+        top: 25%;
+    }
+
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
     }
 }

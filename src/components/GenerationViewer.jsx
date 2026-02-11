@@ -71,6 +71,11 @@ const GenerationViewer = ({ initialPokemon, speciesData, evolutionChain }) => {
     const description = speciesDetails?.flavor_text_entries?.find(entry => entry.language.name === 'en')?.flavor_text?.replace(/\f/g, ' ') || 'No description available.';
     const generation = speciesDetails?.generation?.name?.replace('generation-', 'GEN ')?.toUpperCase() || 'UNKNOWN';
 
+    // Formatting physical stats
+    const height = currentPokemon?.height ? (currentPokemon.height / 10).toFixed(1) + ' m' : '--';
+    const weight = currentPokemon?.weight ? (currentPokemon.weight / 10).toFixed(1) + ' kg' : '--';
+    const abilities = currentPokemon?.abilities?.map(a => a.ability.name).join(', ') || '--';
+
     const getStyles = (index) => {
         const offset = index - currentIndex;
         const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
@@ -81,7 +86,8 @@ const GenerationViewer = ({ initialPokemon, speciesData, evolutionChain }) => {
         const absOffset = Math.abs(offset);
 
         // Responsive offset: use smaller x distance on mobile
-        const xOffset = isMobile ? 160 : 300;
+        // Responsive offset: use larger x distance on mobile to clear arrows
+        const xOffset = isMobile ? (window.innerWidth < 480 ? 210 : 180) : 300;
         const xStep = isMobile ? 60 : 100;
 
         return {
@@ -90,7 +96,7 @@ const GenerationViewer = ({ initialPokemon, speciesData, evolutionChain }) => {
             z: -400 * absOffset,
             rotateY: dir * -35,
             opacity: Math.max(0, 0.4 / absOffset),
-            scale: 0.6,
+            scale: isMobile ? 0.45 : 0.6,
             filter: `brightness(0.5) blur(${absOffset * 2}px)`,
         };
     };
@@ -167,6 +173,20 @@ const GenerationViewer = ({ initialPokemon, speciesData, evolutionChain }) => {
                         {types.map(t => (
                             <span key={t.type.name} className="type-pill" style={{ borderLeft: `4px solid var(--type-${t.type.name})` }}>{t.type.name}</span>
                         ))}
+                    </div>
+                    <div className="physical-stats">
+                        <div className="stat-item">
+                            <span className="stat-label-dim">HEIGHT</span>
+                            <span className="stat-value-dim">{height}</span>
+                        </div>
+                        <div className="stat-item">
+                            <span className="stat-label-dim">WEIGHT</span>
+                            <span className="stat-value-dim">{weight}</span>
+                        </div>
+                    </div>
+                    <div className="abilities-box">
+                        <span className="stat-label-dim">ABILITIES</span>
+                        <p className="abilities-text">{abilities}</p>
                     </div>
                     <p className="description-box">{description}</p>
                     <div className="evolution-nav">
