@@ -73,14 +73,19 @@ const GenerationViewer = ({ initialPokemon, speciesData, evolutionChain }) => {
 
     const getStyles = (index) => {
         const offset = index - currentIndex;
+        const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
         if (offset === 0) return { x: 0, y: 0, z: 0, rotateY: 0, opacity: 1, scale: 1, filter: 'brightness(1) blur(0px)' };
 
         const dir = offset > 0 ? 1 : -1;
         const absOffset = Math.abs(offset);
 
-        // Multi-member family support
+        // Responsive offset: use smaller x distance on mobile
+        const xOffset = isMobile ? 160 : 300;
+        const xStep = isMobile ? 60 : 100;
+
         return {
-            x: dir * (300 + (absOffset - 1) * 100),
+            x: dir * (xOffset + (absOffset - 1) * xStep),
             y: 0,
             z: -400 * absOffset,
             rotateY: dir * -35,
